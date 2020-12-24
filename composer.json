@@ -1,0 +1,54 @@
+{
+    "name": "rabol/laravel-setup-local-dev",
+    "description": "This is a simple but handy package that can help you setup your local development environment",
+    "keywords": [
+        "rabol",
+        "laravel-setup-local-dev"
+    ],
+    "homepage": "https://github.com/rabol/laravel-setup-local-dev",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Steen Rabol",
+            "email": "steen@rabol.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rabol\\LaravelSetupLocalDev\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rabol\\LaravelSetupLocalDev\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rabol\\LaravelSetupLocalDev\\LaravelSetupLocalDevServiceProvider"
+            ],
+            "aliases": {
+                "LaravelSetupLocalDev": "Rabol\\LaravelSetupLocalDev\\LaravelSetupLocalDevFacade"
+            }
+        }
+    }
+}
