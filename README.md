@@ -1,9 +1,5 @@
 # Very short description of the package
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/rabol/laravel-setup-local-dev.svg?style=flat-square)](https://packagist.org/packages/rabol/laravel-setup-local-dev)
-[![Build Status](https://img.shields.io/travis/rabol/laravel-setup-local-dev/master.svg?style=flat-square)](https://travis-ci.org/rabol/laravel-setup-local-dev)
-[![Quality Score](https://img.shields.io/scrutinizer/g/rabol/laravel-setup-local-dev.svg?style=flat-square)](https://scrutinizer-ci.com/g/rabol/laravel-setup-local-dev)
-[![Total Downloads](https://img.shields.io/packagist/dt/rabol/laravel-setup-local-dev.svg?style=flat-square)](https://packagist.org/packages/rabol/laravel-setup-local-dev)
 
 This is a very simple, but handy package for setting up local Laravel development environment.
 This package contains commands to do all the trivial steps you normally do when setting up your local Laravel development environment.
