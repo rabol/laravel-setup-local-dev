@@ -5,20 +5,25 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/rabol/laravel-setup-local-dev.svg?style=flat-square)](https://scrutinizer-ci.com/g/rabol/laravel-setup-local-dev)
 [![Total Downloads](https://img.shields.io/packagist/dt/rabol/laravel-setup-local-dev.svg?style=flat-square)](https://packagist.org/packages/rabol/laravel-setup-local-dev)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+This is a very simple, but handy package for setting up local Laravel development environment.
+This package contins commands to do all the trivial steps you normally do when setting up your local Laravel development environment.
+
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require rabol/laravel-setup-local-dev
+composer require rabol/laravel-setup-local-dev --dev
 ```
 
 ## Usage
 
 ``` php
 // Usage description here
+php artisan setuplocaldev:setenv
+php artisan setuplocaldev:commontasks
+
 ```
 
 ### Testing
