@@ -6,9 +6,11 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/rabol/laravel-setup-local-dev.svg?style=flat-square)](https://packagist.org/packages/rabol/laravel-setup-local-dev)
 
 This is a very simple, but handy package for setting up local Laravel development environment.
-This package contins commands to do all the trivial steps you normally do when setting up your local Laravel development environment.
+This package contains commands to do all the trivial steps you normally do when setting up your local Laravel development environment.
 
+One can create a .default_vars.env in the users home directory with the common .env variables that one alwasy set e.g. MAIL_HOST=127.0.0.1 for Homestead based development environments.
 
+It is also possible to specify a specific fiel to beuse by using the --file options.
 ## Installation
 
 You can install the package via composer:
@@ -22,7 +24,11 @@ composer require rabol/laravel-setup-local-dev --dev
 ``` php
 // Usage description here
 php artisan setuplocaldev:setenv
-php artisan setuplocaldev:commontasks
+
+or
+
+php artisan setuplocaldev:setenv --file=test.env
+
 
 ```
 
