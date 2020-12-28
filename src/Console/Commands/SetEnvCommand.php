@@ -71,7 +71,15 @@ class SetEnvCommand extends Command
         }
 
         // Load the .env
-        $app_env = DotenvEditor::load();
+        try {
+            $app_env = DotenvEditor::load();
+        }
+        catch (\Exception $exception)
+        {
+            $this->error($exception->getMessage());
+            exit();
+        }
+
 
         // Now apply the user vars
         foreach ($user_keys as $user_key => $user_value)
