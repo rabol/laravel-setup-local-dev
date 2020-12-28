@@ -101,7 +101,7 @@ class SetEnvCommand extends Command
     }
 
     /**
-     *
+     * @return void
      */
     public function validateOrCopyEnvFile()
     {
@@ -122,8 +122,6 @@ class SetEnvCommand extends Command
      */
     public function validateOrUserEnvFile(): string
     {
-        $default_env_vars_file = "";
-
         if($this->option('file') !== null)
         {
             $default_env_vars_file = $this->option('file');
