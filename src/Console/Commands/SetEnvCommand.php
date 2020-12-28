@@ -78,6 +78,11 @@ class SetEnvCommand extends Command
         {
             $newValue = $user_value['value'];
 
+            if($newValue == '[ASK_FOR_VALUE]')
+            {
+                $newValue = $this->ask("Please ente value for '$user_key'");
+            }
+
             if($app_env->keyExists($user_key))
             {
                 $this->info("Update $user_key from " . $app_env->getValue($user_key) . " to $newValue");

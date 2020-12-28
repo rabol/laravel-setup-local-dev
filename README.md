@@ -6,7 +6,14 @@ This package contains commands to do all the trivial steps you normally do when 
 
 One can create a .default_vars.env in the users home directory with the common .env variables that one alwasy set e.g. MAIL_HOST=127.0.0.1 for Homestead based development environments.
 
-It is also possible to specify a specific fiel to beuse by using the --file options.
+It is also possible to specify a specific file to be used by using the --file options.
+
+If you ant dynamic vars you can use this:
+
+VAR_NAME=[ASK_FOR_VALUE]
+
+Then you wil be prompted to enter a value
+
 ## Installation
 
 You can install the package via composer:
