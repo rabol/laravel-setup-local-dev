@@ -6,6 +6,10 @@ use Illuminate\Console\Command;
 use Jackiedo\DotenvEditor\Exceptions\InvalidValueException;
 use Jackiedo\DotenvEditor\Facades\DotenvEditor;
 
+/**
+ * Class SetEnvCommand
+ * @package Rabol\LaravelSetupLocalDev\Console\Commands
+ */
 class SetEnvCommand extends Command
 {
     /**
@@ -39,33 +43,14 @@ class SetEnvCommand extends Command
      */
     public function handle()
     {
-
-        if(!file_exists(base_path() . '/.env'))
-        {
-            copy('.env.example', '.env');
-        }
+        $this->validateOrCopyEnvFile();
+        $default_env_vars_file = $this->validateOrUserEnvFile();
 
         $this->info('Installing default .env vars.');
-
-        if($this->option('file') !== null)
-        {
-            $default_env_vars_file = $this->option('file');
-        }
-        else
-        {
-            $default_env_vars_file = get_home_directory();
-            $default_env_vars_file .= '/.default_vars.env';
-        }
-
-        if(!file_exists($default_env_vars_file))
-        {
-            $this->error('File: \'' . $default_env_vars_file . '\' does not exists.');
-            exit();
-        }
-
         $this->info('Reading from: ' . $default_env_vars_file);
 
         $user_vars = DotenvEditor::load($default_env_vars_file);
+
         try {
             $user_keys = $user_vars->getKeys();
         }
@@ -75,7 +60,6 @@ class SetEnvCommand extends Command
             $this->error('A value in the ' . $default_env_vars_file . ' contains white spaces but no quotes around.' . "\n" . 'Please add quotes and try again.');
             exit();
         }
-
 
         // Load the .env
         try {
@@ -87,7 +71,6 @@ class SetEnvCommand extends Command
             exit();
         }
 
-
         // Now apply the user vars
         foreach ($user_keys as $user_key => $user_value)
         {
@@ -95,7 +78,7 @@ class SetEnvCommand extends Command
 
             if($newValue == '[ASK_FOR_VALUE]')
             {
-                $newValue = $this->ask("Please ente value for '$user_key'");
+                $newValue = $this->ask("Please enter a value for '$user_key'");
             }
 
             if($app_env->keyExists($user_key))
@@ -115,5 +98,48 @@ class SetEnvCommand extends Command
         $this->info('Clear config cache');
         $this->call('config:clear');
         $this->info('Done!');
+    }
+
+    /**
+     *
+     */
+    public function validateOrCopyEnvFile()
+    {
+        if(!file_exists(base_path() . '/.env'))
+        {
+            if(!file_exists('.env.example'))
+            {
+                $this->error('.env or .evn.example does not exists, please create .env and try again');
+                exit();
+
+            }
+            copy('.env.example', '.env');
+        }
+    }
+
+    /**
+     * @return string
+     */
+    public function validateOrUserEnvFile(): string
+    {
+        $default_env_vars_file = "";
+
+        if($this->option('file') !== null)
+        {
+            $default_env_vars_file = $this->option('file');
+        }
+        else
+        {
+            $default_env_vars_file = get_home_directory();
+            $default_env_vars_file .= '/.default_vars.env';
+        }
+
+        if(!file_exists($default_env_vars_file))
+        {
+            $this->error('File: \'' . $default_env_vars_file . '\' does not exists.');
+            exit();
+        }
+
+        return $default_env_vars_file;
     }
 }
