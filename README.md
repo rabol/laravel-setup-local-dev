@@ -25,7 +25,7 @@ php artisan migrate
 php artisan storage:link
 ```
 
-#all
+# all
 Execcute all of the available commands
 
 ## Installation
