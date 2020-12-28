@@ -13,22 +13,22 @@ If you want dynamic vars you can use this:
 
 VAR_NAME=[ASK_FOR_VALUE]
 
-Then you wil be prompted to enter a value
+Then you will be prompted to enter a value
 
 # commontasks
 Create a .default_laravel_local_dev.tasks in your home directory with the common tasks that you normally perfrom on each local environment.
 e.g.
 ``` bash
 npm install
-mpn run dev
+npm run dev
 php artisan migrate
 php artisan storage:link
 ```
 
 # all
-Execcute all of the available commands
+Execute all of the available commands
 ``` bash
-php artisan setuolocaldev:all
+php artisan setuplocaldev:all
 ```
 ## Installation
 
@@ -55,7 +55,6 @@ php artisan setuplocaldev:commontasks --file=mytasks
 php artisan setuplocaldev:all
 or
 php artisan setuplocaldev:all --file_env=myvars --file_tasks=mytasks
-
 ```
 
 ### Testing
