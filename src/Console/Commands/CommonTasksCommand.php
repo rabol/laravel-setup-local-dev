@@ -3,10 +3,8 @@
 namespace Rabol\LaravelSetupLocalDev\Console\Commands;
 
 use Illuminate\Console\Command;
-use Symfony\Component\Process\Exception\RuntimeException;
 use Symfony\Component\Process\Process;
-use Symfony\Component\Process\Exception\ProcessFailedException;
-use Symfony\Component\VarDumper\VarDumper;
+
 
 class CommonTasksCommand extends Command
 {
@@ -79,7 +77,7 @@ class CommonTasksCommand extends Command
 
                 // executes after the command finishes
                 if (!$process->isSuccessful()) {
-                    //throw new ProcessFailedException($process);
+
                     $error = sprintf('The command "%s" failed.'."\n\nExit Code: %s(%s)\n\nWorking directory: %s",
                         $process->getCommandLine(),
                         $process->getExitCode(),

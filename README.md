@@ -1,9 +1,10 @@
-# Very short description of the package
+# Laravel setup local dev is your little Elf
 
 
 This is a very simple, but handy package for setting up local Laravel development environment.
 This package contains commands to do all the trivial steps you normally do when setting up your local Laravel development environment.
 
+# setenv
 Create a .default_vars.env in the your home directory with the common .env variables that you always set e.g. MAIL_HOST=127.0.0.1 for Homestead based development environments.
 
 It is also possible to specify a specific file to be used by using the --file options.
@@ -14,6 +15,18 @@ VAR_NAME=[ASK_FOR_VALUE]
 
 Then you wil be prompted to enter a value
 
+# commontasks
+Create a .default_laravel_local_dev.tasks in your home directory with the common tasks that you normally perfrom on each local environment.
+e.g.
+``` bash
+npm install
+mpn run dev
+php artisan migrate
+php artisan storage:link
+```
+
+#all
+Execcute all of the available commands
 
 ## Installation
 
