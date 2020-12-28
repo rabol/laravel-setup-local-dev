@@ -4,15 +4,16 @@
 This is a very simple, but handy package for setting up local Laravel development environment.
 This package contains commands to do all the trivial steps you normally do when setting up your local Laravel development environment.
 
-One can create a .default_vars.env in the users home directory with the common .env variables that one alwasy set e.g. MAIL_HOST=127.0.0.1 for Homestead based development environments.
+Create a .default_vars.env in the your home directory with the common .env variables that you always set e.g. MAIL_HOST=127.0.0.1 for Homestead based development environments.
 
 It is also possible to specify a specific file to be used by using the --file options.
 
-If you ant dynamic vars you can use this:
+If you want dynamic vars you can use this:
 
 VAR_NAME=[ASK_FOR_VALUE]
 
 Then you wil be prompted to enter a value
+
 
 ## Installation
 
@@ -25,13 +26,20 @@ composer require rabol/laravel-setup-local-dev --dev
 ## Usage
 
 ``` php
-// Usage description here
+// Setup you .env vars
 php artisan setuplocaldev:setenv
-
 or
+php artisan setuplocaldev:setenv --file=myvars
 
-php artisan setuplocaldev:setenv --file=test.env
+// Execute commontasks
+php artisan setuplocaldev:commontasks
+or
+php artisan setuplocaldev:commontasks --file=mytasks
 
+// All of the above
+php artisan setuplocaldev:all
+or
+php artisan setuplocaldev:all --file_env=myvars --file_tasks=mytasks
 
 ```
 

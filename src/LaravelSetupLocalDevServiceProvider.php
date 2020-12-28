@@ -4,6 +4,8 @@ namespace Rabol\LaravelSetupLocalDev;
 
 use Illuminate\Support\ServiceProvider;
 use Rabol\LaravelSetupLocalDev\Console\Commands\SetEnvCommand;
+use Rabol\LaravelSetupLocalDev\Console\Commands\CommonTasksCommand;
+use Rabol\LaravelSetupLocalDev\Console\Commands\AllCommand;
 
 class LaravelSetupLocalDevServiceProvider extends ServiceProvider
 {
@@ -43,6 +45,8 @@ class LaravelSetupLocalDevServiceProvider extends ServiceProvider
             // Registering package commands.
              $this->commands([
                  SetEnvCommand::class,
+                 CommonTasksCommand::class,
+                 AllCommand::class,
              ]);
         }
     }
