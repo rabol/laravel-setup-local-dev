@@ -27,7 +27,9 @@ php artisan storage:link
 
 # all
 Execcute all of the available commands
-
+``` bash
+php artisan setuolocaldev:all
+```
 ## Installation
 
 You can install the package via composer:
