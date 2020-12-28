@@ -39,6 +39,12 @@ class SetEnvCommand extends Command
      */
     public function handle()
     {
+
+        if(!file_exists(base_path() . '/.env'))
+        {
+            copy('.env.example', '.env');
+        }
+
         $this->info('Installing default .env vars.');
 
         if($this->option('file') !== null)
@@ -69,6 +75,7 @@ class SetEnvCommand extends Command
             $this->error('A value in the ' . $default_env_vars_file . ' contains white spaces but no quotes around.' . "\n" . 'Please add quotes and try again.');
             exit();
         }
+
 
         // Load the .env
         try {
