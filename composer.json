@@ -16,15 +16,14 @@
         }
     ],
     "require": {
-        "php": "^7.3|^8.0",
         "jackiedo/dotenv-editor": "^1.2",
         "juliardi/homedir": "^1.0",
-        "laravel/framework": "^7.0|^8.0",
-        "symfony/process": "^5.2"
+        "illuminate/support": "^6.0|^7.0|^8.0",
+        "symfony/process": "^5.1|^5.2"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.7",
-        "phpunit/phpunit": "^9.5"
+        "orchestra/testbench": "^4.0|^6.7",
+        "phpunit/phpunit": "^8.0|^9.5"
     },
     "autoload": {
         "psr-4": {
